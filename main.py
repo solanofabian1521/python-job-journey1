@@ -1,3 +1,5 @@
+print("Version nueva")
+
 def registrar_candidato(nombre, edad):
 
     if edad >= 18:
@@ -9,16 +11,33 @@ def registrar_candidato(nombre, edad):
 
 candidatos = []
 
-nombre = input("Ingrese el nombre: ")
-edad = int(input("Ingrese la edad: "))
 
-resultado = registrar_candidato(nombre,edad)
+while True:
 
-print(resultado) 
+    print("\n===== JOBHUB =====")
+    print("1. Registrar candidato")
+    print("2. Ver candidatos")
+    print("3. Salir")
 
-print("\n===== CANDIDATOS REGISTRADOS =====")
+    opcion = input("Seleccione una opción: ")
 
-for candidato in candidatos: 
-    print(candidato)
+    if opcion == "3":
+        break 
 
-    
+    elif opcion == "1":
+
+        nombre = input("Ingrese el nombre: ")
+        edad = int(input("Ingrese la edad: "))
+
+        resultado = registrar_candidato(nombre,edad)
+
+        print(resultado) 
+
+    elif opcion == "2":
+        if len(candidatos) == 0:
+            print("No hay candidatos registrados.")
+        else:
+            for candidato in candidatos: 
+                print(candidato)
+    else:
+        print("Opción no válida. Intente nuevamente.")
